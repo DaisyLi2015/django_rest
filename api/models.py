@@ -24,5 +24,16 @@ class Guest(models.Model):
     class Meta:
         unique_together = ('phone','event')
 
+class Guest3(models.Model):
+        event = models.ForeignKey(Event)
+        realname = models.CharField(max_length=64)
+        phone = models.CharField(max_length=16)
+        email = models.EmailField()
+        sign = models.BooleanField()
+        create_time = models.DateTimeField(auto_now=True)
+
+        class Meta:
+            unique_together = ('phone', 'event')
+
     def __str__(self):
         return self.realname
